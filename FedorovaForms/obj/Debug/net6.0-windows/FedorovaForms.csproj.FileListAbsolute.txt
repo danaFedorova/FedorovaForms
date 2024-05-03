@@ -1,0 +1,16 @@
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.RegisterForm.resources
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.csproj.GenerateResource.cache
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.AssemblyInfoInputs.cache
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.AssemblyInfo.cs
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.csproj.CoreCompileInputs.cache
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\bin\Debug\net6.0-windows\FedorovaForms.exe
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\bin\Debug\net6.0-windows\FedorovaForms.deps.json
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\bin\Debug\net6.0-windows\FedorovaForms.runtimeconfig.json
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\bin\Debug\net6.0-windows\FedorovaForms.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\bin\Debug\net6.0-windows\FedorovaForms.pdb
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\refint\FedorovaForms.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.pdb
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\FedorovaForms.genruntimeconfig.cache
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaForms\obj\Debug\net6.0-windows\ref\FedorovaForms.dll

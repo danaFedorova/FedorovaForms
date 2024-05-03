@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedorovaForms", "FedorovaForms\FedorovaForms.csproj", "{DC79DFC7-981B-4AED-8C48-D06808D3C187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedorovaTestProject", "FedorovaTestProject\FedorovaTestProject.csproj", "{928C018C-B427-440B-9ADC-D901FCF0ED2D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DC79DFC7-981B-4AED-8C48-D06808D3C187} = {DC79DFC7-981B-4AED-8C48-D06808D3C187}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC79DFC7-981B-4AED-8C48-D06808D3C187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC79DFC7-981B-4AED-8C48-D06808D3C187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC79DFC7-981B-4AED-8C48-D06808D3C187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC79DFC7-981B-4AED-8C48-D06808D3C187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928C018C-B427-440B-9ADC-D901FCF0ED2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928C018C-B427-440B-9ADC-D901FCF0ED2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928C018C-B427-440B-9ADC-D901FCF0ED2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928C018C-B427-440B-9ADC-D901FCF0ED2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B2194E1-6C88-438F-B872-AC201F987AEB}
+	EndGlobalSection
+EndGlobal
