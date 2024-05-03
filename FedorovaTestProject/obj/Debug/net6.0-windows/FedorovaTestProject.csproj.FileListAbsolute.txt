@@ -103,3 +103,8 @@ C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\obj\Debug\n
 C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\obj\Debug\net6.0-windows\FedorovaTestProject.pdb
 C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\obj\Debug\net6.0-windows\FedorovaTestProject.genruntimeconfig.cache
 C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\obj\Debug\net6.0-windows\ref\FedorovaTestProject.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\bin\Debug\net6.0-windows\FlaUI.Core.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\bin\Debug\net6.0-windows\FlaUI.UIA3.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\bin\Debug\net6.0-windows\Interop.UIAutomationClient.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\bin\Debug\net6.0-windows\System.Management.dll
+C:\Users\antailyaqwer\source\repos\FedorovaForms\FedorovaTestProject\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.0\System.Management.dll

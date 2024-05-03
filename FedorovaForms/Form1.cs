@@ -5,6 +5,8 @@ namespace FedorovaForms
         public RegisterForm()
         {
             InitializeComponent();
+
+            //FedorovaTestProject.Tests.ManageClass.GetDatabaseController();
         }
 
         public static bool checkDoctorData(string login,
@@ -89,20 +91,49 @@ string repPassword)
             }
             return null;
         }
-    }
 
-    public interface IDoctorEntry
-    {
-        public string ID { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-    }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
-    public interface IDatabaseController
-    {
-        public bool tryConnectDB();
-        public bool tryCreateAccount(string login, string password);
-        public IDoctorEntry getNewDoctorEntry();
-        public bool login(string login, string password);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            {
+                ErrorLabel.Text = "";
+                try
+                {
+                    string login = LoginTextBox.Text;
+                    string password = PasswordTextBox.Text;
+                    string repPassword = RepPasswordTextBox.Text;
+                    IDoctorEntry doctor = onRegisterClick(login, password, repPassword);
+                    ErrorLabel.Text = "Пользователь " + doctor.Login + " зарегистрирован!";
+                    if (MessageBox.Show("Пользователь " + doctor.Login + " зарегистрирован!"
+                    , "Внимание!") == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                catch (Exception exception)
+                {
+                    ErrorLabel.Text = exception.Message;
+                }
+            }
+        }
+
+        public interface IDoctorEntry
+        {
+            public string ID { get; set; }
+            public string Login { get; set; }
+            public string Password { get; set; }
+        }
+
+        public interface IDatabaseController
+        {
+            public bool tryConnectDB();
+            public bool tryCreateAccount(string login, string password);
+            public IDoctorEntry getNewDoctorEntry();
+            public bool login(string login, string password);
+        }
     }
 }

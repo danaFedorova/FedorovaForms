@@ -1,5 +1,7 @@
 using FedorovaForms;
 using Microsoft.VisualBasic.Logging;
+using NUnit.Framework;
+using static FedorovaForms.RegisterForm;
 
 namespace FedorovaTestProject
 {
@@ -116,22 +118,22 @@ namespace FedorovaTestProject
         /// </summary>
         [Test]
         public void T_005_СheckDoctorData_DifferentPasswords()
-{
-//подготовка данных
-String login = "myname_doctor";
-        String password = "DoctorSuperBest123!";
-        String repPassword = "DoctorSupeBest123!";
-        //ожидаемое значение
-        String expectedExceptionMessage = FedorovaForms.ExceptionStrings.DifferentPasswords;
-        //Assert для получения исключения
-        Exception? exception = Assert.Throws<Exception>(() =>
         {
-            RegisterForm.checkDoctorData(login, password, repPassword);
-        });
-        Assert.IsNotNull(exception);
-//Assert для проверки ожидаемого и полученного значения
-Assert.AreEqual(expectedExceptionMessage, exception.Message);
-}
+            //подготовка данных
+            String login = "myname_doctor";
+            String password = "DoctorSuperBest123!";
+            String repPassword = "DoctorSupeBest123!";
+            //ожидаемое значение
+            String expectedExceptionMessage = FedorovaForms.ExceptionStrings.DifferentPasswords;
+            //Assert для получения исключения
+            Exception? exception = Assert.Throws<Exception>(() =>
+            {
+                RegisterForm.checkDoctorData(login, password, repPassword);
+            });
+            Assert.IsNotNull(exception);
+            //Assert для проверки ожидаемого и полученного значения
+            Assert.AreEqual(expectedExceptionMessage, exception.Message);
+        }
 
         /// <summary>
         /// Логин и пароль совпадают.
@@ -145,8 +147,8 @@ Assert.AreEqual(expectedExceptionMessage, exception.Message);
             String password = "myname_doctor";
             String repPassword = "myname_doctor";
             //ожидаемое значение
-            
-        String expectedExceptionMessage = FedorovaForms.ExceptionStrings.SameLoginPassword;
+
+            String expectedExceptionMessage = FedorovaForms.ExceptionStrings.SameLoginPassword;
             //Assert для получения исключения
             Exception? exception = Assert.Throws<Exception>(() =>
             {
@@ -175,7 +177,7 @@ Assert.AreEqual(expectedExceptionMessage, exception.Message);
             {
                 RegisterForm.checkDoctorData(login, password, repPassword);
             });
-        Assert.IsNotNull(exception);
+            Assert.IsNotNull(exception);
             //Assert для проверки ожидаемого и полученного значения
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
@@ -233,8 +235,8 @@ Assert.AreEqual(expectedExceptionMessage, exception.Message);
         [Test]
         public void T_010_СheckDoctorData_PasswordNoUpperChar()
         {
-        //подготовка данных
-String login = "myname_doctor";
+            //подготовка данных
+            String login = "myname_doctor";
             String password = "doctorsuperbest123!";
             String repPassword = "doctorsuperbest123!";
             //ожидаемое значение
@@ -262,61 +264,77 @@ String login = "myname_doctor";
             String repPassword = "DoctorSuperBest123!";
             //ожидаемое значение
             String expectedExceptionMessage = FedorovaForms.ExceptionStrings.LoginForbidden;
-        //Assert для получения исключения
-Exception? exception = Assert.Throws<Exception>(() =>
-{
-    RegisterForm.checkDoctorData(login, password, repPassword);
-});
+            //Assert для получения исключения
+            Exception? exception = Assert.Throws<Exception>(() =>
+            {
+                RegisterForm.checkDoctorData(login, password, repPassword);
+            });
             Assert.IsNotNull(exception);
             //Assert для проверки ожидаемого и полученного значения
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
 
-        public class MockDoctorEntry : IDoctorEntry
+        public static class ManageClass
         {
-            public string ID { get; set; }
-            public string Login { get; set; }
-            public string Password { get; set; }
-        }
-
-        public class MockDatabaseController_NoConnection : IDatabaseController
-        {
-            public IDoctorEntry getNewDoctorEntry() { throw new NotImplementedException(); }
-            public bool login(string login, string password)
+            public static int index = 3;
+            public static IDatabaseController GetDatabaseController()
             {
-                throw new
-            NotImplementedException();
-            }
-            public bool tryConnectDB() { return false; }
-            public bool tryCreateAccount(string login, string password)
-            {
-                throw new
-            NotImplementedException();
-            }
-        }
-
-        public class MockDatabaseController_LoginExists : IDatabaseController
-        {
-            public IDoctorEntry getNewDoctorEntry() { throw new NotImplementedException(); }
-            public bool login(string login, string password) { return true; }
-            public bool tryConnectDB() { return true; }
-            public bool tryCreateAccount(string login, string password) { return false; }
-        }
-
-        public class MockDatabaseController_OK : IDatabaseController
-        {
-            public IDoctorEntry getNewDoctorEntry()
-            {
-                return new MockDoctorEntry()
+#if DEBUG
+                switch (index)
                 {
-                    ID = "1",
-                    Login = "myname_doctor",
-                    Password = "DoctorSuperBest123!"
-                };
+                    case 0: throw new NotImplementedException(); break;
+                    case 1: return new MockDatabaseController_NoConnection(); break;
+                    case 2: return new MockDatabaseController_LoginExists(); break;
+                    case 3: return new MockDatabaseController_OK(); break;
+                }
+                return null;
+#else
+throw new NotImplementedException();
+#endif
             }
-            public bool login(string login, string password) { return true; }
-            public bool tryConnectDB() { return true; }
-            public bool tryCreateAccount(string login, string password) { return true; }
+#if DEBUG
+            public class MockDoctorEntry : IDoctorEntry
+            {
+                public string ID { get; set; }
+                public string Login { get; set; }
+                public string Password { get; set; }
+            }
+            public class MockDatabaseController_NoConnection : IDatabaseController
+            {
+                public IDoctorEntry getNewDoctorEntry() { throw new NotImplementedException(); }
+                public bool login(string login, string password)
+                {
+                    throw new NotImplementedException();
+                }
+                public bool tryConnectDB() { return false; }
+                public bool tryCreateAccount(string login, string password)
+                {
+                    throw new
+                NotImplementedException();
+                }
+            }
+            public class MockDatabaseController_LoginExists : IDatabaseController
+            {
+                public IDoctorEntry getNewDoctorEntry() { throw new NotImplementedException(); }
+                public bool login(string login, string password) { return true; }
+                public bool tryConnectDB() { return true; }
+                public bool tryCreateAccount(string login, string password) { return false; }
+            }
+
+            public class MockDatabaseController_OK : IDatabaseController
+            {
+                MockDoctorEntry doctorEntry;
+                public IDoctorEntry getNewDoctorEntry() { return doctorEntry; }
+                public bool login(string login, string password) { return true; }
+                public bool tryConnectDB() { return true; }
+                public bool tryCreateAccount(string login, string password)
+                {
+                    doctorEntry = new
+                MockDoctorEntry()
+                    { ID = "1", Login = login, Password = password }; return true;
+                }
+            }
+#endif
         }
 
         /// <summary>
@@ -332,8 +350,8 @@ Exception? exception = Assert.Throws<Exception>(() =>
             String repPassword = "DoctorSuperBest123!";
             //подготовка данных
             RegisterForm registerForm = new RegisterForm();
-      registerForm.controller = new MockDatabaseController_OK();
-           IDoctorEntry doctorEntry = null;
+            registerForm.controller = new ManageClass.MockDatabaseController_OK();
+            IDoctorEntry doctorEntry = null;
             //Assert для получения исключения
             Assert.DoesNotThrow(() =>
             {
@@ -359,15 +377,15 @@ Exception? exception = Assert.Throws<Exception>(() =>
             //ожидаемое значение
             String expectedExceptionMessage = FedorovaForms.ExceptionStrings.NoConnectionDB;
             RegisterForm registerForm = new RegisterForm();
-            registerForm.controller = new MockDatabaseController_NoConnection();
+            registerForm.controller = new ManageClass.MockDatabaseController_NoConnection();
             //Assert для получения исключения
-        Exception? exception = Assert.Throws<Exception>(() =>
-        {
-           registerForm.onRegisterClick(login, password, repPassword);
-        });
+            Exception? exception = Assert.Throws<Exception>(() =>
+            {
+                registerForm.onRegisterClick(login, password, repPassword);
+            });
             Assert.IsNotNull(exception);
             //Assert для проверки ожидаемого и полученного значения
-           Assert.AreEqual(expectedExceptionMessage, exception.Message);
+            Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
 
         /// <summary>
@@ -384,7 +402,7 @@ Exception? exception = Assert.Throws<Exception>(() =>
             //ожидаемое значение
             String expectedExceptionMessage = FedorovaForms.ExceptionStrings.LoginAlreadyExists;
             RegisterForm registerForm = new RegisterForm();
-            registerForm.controller = new MockDatabaseController_LoginExists();
+            registerForm.controller = new ManageClass.MockDatabaseController_LoginExists();
             //Assert для получения исключения
             Exception? exception = Assert.Throws<Exception>(() =>
             {
@@ -394,5 +412,5 @@ Exception? exception = Assert.Throws<Exception>(() =>
             //Assert для проверки ожидаемого и полученного значения
             Assert.AreEqual(expectedExceptionMessage, exception.Message);
         }
-    }       
+    }
 }
